@@ -1,7 +1,7 @@
 package day4
 
 
-val testInput = """
+private val testInput = """
     MMMSXXMASM
     MSAMXMSMSA
     AMXSXMAAMM
@@ -14,7 +14,7 @@ val testInput = """
     MXMXAXMASX
 """.trimIndent()
 
-val words = listOf("XMAS", "SAMX")
+private val words = listOf("XMAS", "SAMX")
 
 fun day4Part1(): Int {
     val array = day4Input.split("\n")
