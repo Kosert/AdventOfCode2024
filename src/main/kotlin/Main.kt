@@ -1,5 +1,5 @@
 
 fun main() {
-    println(day5.day5Part1())
-    println(day5.day5Part2())
+    println(day6.day6Part1())
+    println(day6.day6Part2())
 }
