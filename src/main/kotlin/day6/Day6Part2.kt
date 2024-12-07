@@ -7,9 +7,7 @@ fun day6Part2(): Int {
     repeat(map.size) { y->
         repeat(map.first().size) { x ->
             val copy = map.toMutableList().map { it.toMutableList() }
-
             if (copy[y][x] != '^') {
-                println("${y}, ${x}")
                 copy[y][x] = '#'
                 if (copy.isLooped()) {
                     counter++
@@ -22,7 +20,7 @@ fun day6Part2(): Int {
 }
 
 fun List<List<Char>>.isLooped(): Boolean {
-    val limit = 1000_000
+    val limit = 100_000
 
     var counter = 0
     var y = this.indexOfFirst { it.contains('^') }
@@ -39,9 +37,9 @@ fun List<List<Char>>.isLooped(): Boolean {
             }
             null -> break
         }
-        if (counter > limit)
+        if (counter > limit) {
             return true
+        }
     }
-    println(counter)
     return false
 }
