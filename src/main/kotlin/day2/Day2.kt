@@ -1,6 +1,6 @@
 package day2
 
-import dropIndex
+import utils.dropIndex
 
 fun day2Part1(): Int {
     val lists = day2input.lineSequence()

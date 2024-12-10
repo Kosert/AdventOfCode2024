@@ -1,5 +1,7 @@
 package day6
 
+import utils.Dir
+
 fun day6Part2(): Int {
     val map = mapInput.split("\n").map { it.toList() }
     var counter = 0
