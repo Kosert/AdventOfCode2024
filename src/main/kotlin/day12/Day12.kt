@@ -74,10 +74,10 @@ private fun generateRegions(input: String): List<Region> {
     }
 }
 
-fun day12Part1(input: String = day12Input): Int {
+fun day12Part1(input: String = Day12Input.prodInput): Int {
     return generateRegions(input).sumOf { it.area() * it.perimeter() }
 }
 
-fun day12Part2(input: String = day12Input): Int {
+fun day12Part2(input: String = Day12Input.prodInput): Int {
     return generateRegions(input).sumOf { it.area() * it.sides() }
 }
