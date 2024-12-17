@@ -16,7 +16,7 @@ val Pair<Double, Double>.x
 val Pair<Double, Double>.y
     get() = second
 
-fun Position.move(dir: Dir) = Position(this.x + dir.x, this.y + dir.y)
+fun Position.moved(dir: Dir) = Position(this.x + dir.x, this.y + dir.y)
 
 fun <T> List2D<T>.getAt(x: Int, y: Int) = getOrNull(y)?.getOrNull(x)
 
