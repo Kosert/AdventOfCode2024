@@ -1,4 +1,4 @@
-package day16
+package utils
 
 interface Node
 
@@ -8,10 +8,6 @@ data class Edge(val node1: Node, val node2: Node, val distance: Int)
  * See https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
  */
 fun findShortestPath(edges: List<Edge>, source: Node, target: Node): ShortestPathResult {
-
-    // Note: this implementation uses similar variable names as the algorithm given do.
-    // We found it more important to align with the algorithm than to use possibly more sensible naming.
-
     val dist = mutableMapOf<Node, Int>()
     val prev = mutableMapOf<Node, List<Node>>()
     val q = findDistinctNodes(edges)
@@ -27,7 +23,7 @@ fun findShortestPath(edges: List<Edge>, source: Node, target: Node): ShortestPat
         q.remove(u)
 
         if (u == target) {
-            break // Found shortest path to target
+            break
         }
         edges
             .filter { it.node1 == u }
@@ -57,9 +53,6 @@ private fun findDistinctNodes(edges: List<Edge>): MutableSet<Node> {
     return nodes
 }
 
-/**
- * Traverse result
- */
 class ShortestPathResult(val prev: Map<Node, List<Node>>, val dist: Map<Node, Int>, val source: Node, val target: Node) {
 
     fun shortestPath(from: Node = source, to: Node = target, list: List<Node> = emptyList()): List<Node> {
@@ -70,6 +63,8 @@ class ShortestPathResult(val prev: Map<Node, List<Node>>, val dist: Map<Node, In
         }
         return shortestPath(from, last, list) + to
     }
+
+    fun distance(): Int = shortestDistance() ?: throw NullPointerException()
 
     fun shortestDistance(): Int? {
         val shortest = dist[target]
