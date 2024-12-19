@@ -12,5 +12,5 @@ class Day23Part2Test : MultipleCasesTest<String, Int>() {
     override fun execute(input: String) = day23Part2(input)
 
     @Test
-    fun testPart1() = assertAllCases()
+    fun testPart2() = assertAllCases()
 }
