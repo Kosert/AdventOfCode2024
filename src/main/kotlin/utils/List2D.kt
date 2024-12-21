@@ -1,9 +1,5 @@
 package utils
 
-import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
-
 typealias List2D<T> = List<List<T>>
 
 typealias Position = Pair<Int, Int>
@@ -21,6 +17,14 @@ val Pair<Double, Double>.y
     get() = second
 
 fun Position.moved(dir: Dir) = Position(this.x + dir.x, this.y + dir.y)
+
+fun Position.moved(dirs: Collection<Dir>): Position {
+    val xMod = dirs.sumOf { it.x }
+    val yMod = dirs.sumOf { it.y }
+    return Position(x + xMod, y + yMod)
+}
+
+fun List<String>.toList2D(): List2D<Char> = map { it.map { it } }
 
 fun <T> List2D<T>.getAt(x: Int, y: Int) = getOrNull(y)?.getOrNull(x)
 

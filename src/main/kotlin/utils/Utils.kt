@@ -15,3 +15,14 @@ infix fun ClosedRange<Double>.step(step: Double): Iterable<Double> {
     }
     return sequence.asIterable()
 }
+
+//fixme change to List<Boolean>?
+fun generateAllVariations(counter0: Int, counter1: Int, acc: List<String> = listOf("")): List<String> {
+    if (counter0 == 0 && counter1 == 0) return acc
+    return buildList {
+        if (counter0 > 0)
+            addAll(generateAllVariations(counter0 - 1, counter1, acc.map { it + "0" }))
+        if (counter1 > 0)
+            addAll(generateAllVariations(counter0, counter1 - 1, acc.map { it + "1" }))
+    }
+}
