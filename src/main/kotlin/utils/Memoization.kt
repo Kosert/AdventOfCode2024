@@ -1,6 +1,6 @@
 package utils
 
-fun <T, R> cachedFun(function: (T) -> R): (T) -> R = object : (T) -> R {
+fun <T, R> cachedFun(function: ((T) -> R).(T) -> R): (T) -> R = object : (T) -> R {
     val map = mutableMapOf<T, R>()
 
     override fun invoke(p1: T): R = if (map.containsKey(p1))
@@ -9,7 +9,7 @@ fun <T, R> cachedFun(function: (T) -> R): (T) -> R = object : (T) -> R {
         function(p1).also { map[p1] = it }
 }
 
-fun <T1, T2, R> cachedFun(function: (T1, T2) -> R): (T1, T2) -> R = object : (T1, T2) -> R {
+fun <T1, T2, R> cachedFun(function: ((T1, T2) -> R).(T1, T2) -> R): (T1, T2) -> R = object : (T1, T2) -> R {
     val map = mutableMapOf<Pair<T1, T2>, R>()
 
     override fun invoke(p1: T1, p2: T2): R {
