@@ -59,3 +59,17 @@ inline fun <T> List2D<T>.findIndexOrNull(crossinline predicate: (T) -> Boolean):
 inline fun <T> List2D<T>.findIndex(crossinline predicate: (T) -> Boolean): Position {
     return findIndexOrNull(predicate) ?: throw NoSuchElementException("No element found matching the predicate")
 }
+
+fun <T> List2D<T>.getColumn(xIndex: Int) = indices.map { y -> getAt(xIndex, y) }
+
+val <T> List2D<T>.sizeX
+    get() = first().size
+
+val <T> List2D<T>.lastXIndex
+    get() = first().lastIndex
+
+val <T> List2D<T>.sizeY
+    get() = size
+
+val <T> List2D<T>.lastYIndex
+    get() = lastIndex
