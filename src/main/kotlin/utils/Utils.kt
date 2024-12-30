@@ -26,3 +26,16 @@ fun generateAllVariations(counter0: Int, counter1: Int, acc: List<String> = list
             addAll(generateAllVariations(counter0, counter1 - 1, acc.map { it + "1" }))
     }
 }
+
+fun <T> permutations(list: Collection<T>): Set<List<T>> {
+    if (list.isEmpty())
+        return setOf(emptyList())
+
+    return buildSet {
+        list.forEach {
+            permutations(list - it).forEach { item ->
+                add(item + it)
+            }
+        }
+    }
+}

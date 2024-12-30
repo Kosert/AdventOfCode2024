@@ -1,8 +1,8 @@
-import day23.day23Part1
-import day23.day23Part2
+import day24.day24Part1
+import day24.day24Part2
 
 
 fun main() {
-    println(day23Part1())
-    println(day23Part2())
+    println(day24Part1())
+    println(day24Part2())
 }
